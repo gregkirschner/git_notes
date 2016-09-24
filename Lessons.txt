@@ -17,7 +17,8 @@ Bash profile to allow opening Sublime with subl command:
   ls -a   (list all, including hidden files)
   Confirm that .bash_profile is there
   open .bash_profile
-    add line to end:  export PATH=$PATH:/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin
+    add line to end:  export PATH=$PATH:/Applications/Sublime\ Text\ 2.
+    app/Contents/SharedSupport/bin
   All instructions for this: 
 https://www.udacity.com/wiki/ud775/sublime?_ga=1.133307214.1371608642.1474066177
 
@@ -45,7 +46,8 @@ Git Help
 
 Git Clone to make a copy of entire repository
   git clone <url to repository>
-When you clone a repository, Git automatically creates the remote linking to the URL for you.
+When you clone a repository, Git automatically creates the remote linking to the URL for 
+you.
 
 Q to quit after reading a git log and go back to command line
 
@@ -56,39 +58,64 @@ Git Checkout - to revert to a previous version you are on.
   The checkout takes all files in the repository back.
   git checkout <commit id here>
 
-Git metadata is stored in a directory in the git folder. It is hidden and is labeled .git. You can use terminal to get to it (can see it with it "ls -a" and open it with "cd .git" from the main repository folder).
+Git metadata is stored in a directory in the git folder. It is hidden and is labeled .git.
+ You can use terminal to get to it (can see it with it "ls -a" and open it with "cd .git" 
+ from the main repository folder).
 
-git init  -  This creates/initializes a repository for a folder. It does not need to have files already in it, but it can. Git does not create any commits when initialized, so after git init there will still be zero commits until you do a git commit.
+git init  -  This creates/initializes a repository for a folder. It does not need to have 
+files already in it, but it can. Git does not create any commits when initialized, so 
+after git init there will still be zero commits until you do a git commit.
 
-git add <file> - allows you to add which files will be tracked with your git repository. When you add a file it goes from the "WORKING DIRECTORY" to the git "STAGING AREA". When you do a git commit, the files in the staging area go to the git "REPOSITORY".
+git add <file> - allows you to add which files will be tracked with your git repository. 
+When you add a file it goes from the "WORKING DIRECTORY" to the git "STAGING AREA". When 
+you do a git commit, the files in the staging area go to the git "REPOSITORY".
 
-git rm --cached <filename> - allows you to remove a file from the staging area before you commit, so that file will not go with the commit.
+git rm --cached <filename> - allows you to remove a file from the staging area before you 
+commit, so that file will not go with the commit.
 
-git diff   - with no arguments will show you the difference between your staging area and working directory
+git diff   - with no arguments will show you the difference between your staging area and 
+working directory
 
 git diff --staged  - shows differences bewteen staging area and repository
 
-git reset --hard   - resets (discards) all changes in the working directory and staging area (reverts back to latest commit in repository)  *** BE VERY CAREFUL with this command because it is irreversible. You'll permanently lose any uncommitted changes.
+git reset --hard   - resets (discards) all changes in the working directory and staging 
+area (reverts back to latest commit in repository)  *** BE VERY CAREFUL with this command 
+because it is irreversible. You'll permanently lose any uncommitted changes.
 
 git branch  - Shows your current branches that exist
 
-git branch <new branch name>   - Creates a new branch name. For example, git branch easy-mode... this creates a branch called easy-mode.
+git branch <new branch name>   - Creates a new branch name. For example, 
+git branch easy-mode... this creates a branch called easy-mode.
 
-git checkout <branch name>  - Switches you to the selected branch. You can run git branch and see which one has an * to confirm current active branch
+git checkout <branch name>  - Switches you to the selected branch. You can run git branch 
+and see which one has an * to confirm current active branch
 
-git log --graph --oneline   - Shows commit history in condensed format. Can also specify specific branches to see:  git log --graph --oneline <branch1> <branch2> etc.
+git log --graph --oneline   - Shows commit history in condensed format. Can also specify 
+specific branches to see:  git log --graph --oneline <branch1> <branch2> etc.
 
 git log -n <number>  - To show only most recent X commits (i.e. git log -n 2).
 
-git branch -b <branch name>  - Allows you to create a new branch and check it out all in one step (rather than git branch <branch name> followed by git checkout <branch name>)
+git branch -b <branch name>  - Allows you to create a new branch and check it out all in 
+one step (rather than git branch <branch name> followed by git checkout <branch name>)
 
-git merge <branch1> <branch2>  - Merges the two branches together. It will add latest lines added in each branch and if one branch deleted lines, it will also delete those lines. There will likely be conflicts that need to be resolved. It does it in your current checked-out branch.
+git merge <branch1> <branch2>  - Merges the two branches together. It will add latest 
+lines added in each branch and if one branch deleted lines, it will also delete those 
+lines. There will likely be conflicts that need to be resolved. It does it in your 
+current checked-out branch.
 
-git show <commit id>  - Shows you changes introduced between the commit and its parent. This is useful after branches merge because comparing consecutive commits (from branch A and branch B) will not truly show what was added in the commit because the branches have many differences.
+git show <commit id>  - Shows you changes introduced between the commit and its parent. 
+This is useful after branches merge because comparing consecutive commits (from branch A 
+and branch B) will not truly show what was added in the commit because the branches have 
+many differences.
 
-git branch -d <branch name>  - To delete a branch label, i.e. after making a merge, you no longer need the old label of one of the merged branches. It will not delete those commits because they are merged under the latest label. If you delete a branch that is not merged it would delete its git log, etc, making it impossible to find the old commits.
+git branch -d <branch name>  - To delete a branch label, i.e. after making a merge, 
+you no longer need the old label of one of the merged branches. It will not delete those 
+commits because they are merged under the latest label. If you delete a branch that is 
+not merged it would delete its git log, etc, making it impossible to find the old commits.
 
-Merge conflicts. When there are merge conflicts, can search the file for '<<<<<' because Git breaks the file conflicts into three parts (example merging a master branch into another branch):
+Merge conflicts. When there are merge conflicts, can search the file for '<<<<<' because 
+Git breaks the file conflicts into three parts (example merging a master branch into 
+another branch):
 <<<<< Head
    headcode here
 ||||||| merged common ancestor
@@ -97,7 +124,11 @@ Merge conflicts. When there are merge conflicts, can search the file for '<<<<<'
    master code here
 >>>>> master
 
-Merging more info:  If you checkout one branch (say, easy-mode), then do a merge with master (git merge master easy-mode) while still on the easy-mode checkout, your changes will allow you to incorporate the master changes into easy mode, but not affect the master branch in any way. The merge and changes are only a part of the easy-mode branch. The order of events would be something like:
+Merging more info:  If you checkout one branch (say, easy-mode), then do a merge with 
+master (git merge master easy-mode) while still on the easy-mode checkout, your changes 
+will allow you to incorporate the master changes into easy mode, but not affect the 
+master branch in any way. The merge and changes are only a part of the easy-mode branch. 
+The order of events would be something like:
   git checkout easy-mode   (switch to the branch you want to add changes to)
   git merge master easy-mode   (incorporate master into easy-mode)
   git status    (see conflicting files)
@@ -108,19 +139,33 @@ Merging more info:  If you checkout one branch (say, easy-mode), then do a merge
 git config --global user.email you@example.com   - To setup your git email.
 
 
-Git Hub: It does not have your working directory and staging area. To start a Git Hub repository need to create a blank repository on Git Hub. (Repositories are public on Git Hub unless you pay). Can push commits from remote to Git Hub, and pull commits from Git Hub to remote. Most commonly push/pull is done by branch instead of specific commit.
+Git Hub: It does not have your working directory and staging area. To start a Git Hub 
+repository need to create a blank repository on Git Hub. (Repositories are public on Git 
+Hub unless you pay). Can push commits from remote to Git Hub, and pull commits from Git 
+Hub to remote. Most commonly push/pull is done by branch instead of specific commit.
 
 git remote   - Shows any git remotes for the repository.
 
-git remote add <remote name> <url of GitHub repository> - If you only have one remote, standard to name it origin, so "git remote add origin <url>".
+git remote add <remote name> <url of GitHub repository> - If you only have one remote, 
+standard to name it origin, so "git remote add origin <url>".
 
 git remote -v   - (Verbose) Will show the URLs you fetch/pull data from on your remotes.
 
-git push <remote name> <local branch name>  - Pushes your branch to the GitHub repository. This could look something like "git push origin master".
+git push <remote name> <local branch name>  - Pushes your branch to the GitHub repository.
+ This could look something like "git push origin master".
 
-git pull <remote name> <branch name on repository>  - Pulls your latest GitHub repository onto your local device.  Example:  "git pull origin master"  REMEMBER, it is pulling into the checked out branch that you are in locally, so you'll want to checkout master if you're pulling the master from repository (they don't need to match if you are intentionally going to another branch).
+git pull <remote name> <branch name on repository>  - Pulls your latest GitHub repository
+ onto your local device.  Example:  "git pull origin master"  REMEMBER, it is pulling 
+ into the checked out branch that you are in locally, so you'll want to checkout master 
+ if you're pulling the master from repository (they don't need to match if you are 
+ intentionally going to another branch).
 
-git fetch <remote name>  -- To pull in the latest from the GitHub repository, but not replace your current local branch. It will create a new branch. You can then compare the two copies using git diff.  You can then do a git merge to join them if you want. When you fetch, say "master" from the remote "origin", you'll have a new branch "origin/master" and you can do git diff master origin/master (to see what's new on GitHub). Or git log origin/master. Example workflow:
+git fetch <remote name>  -- To pull in the latest from the GitHub repository, but not 
+replace your current local branch. It will create a new branch. You can then compare the 
+two copies using git diff.  You can then do a git merge to join them if you want. When 
+you fetch, say "master" from the remote "origin", you'll have a new branch 
+"origin/master" and you can do git diff master origin/master (to see what's new on GitHub)
+. Or git log origin/master. Example workflow:
   (a.) You update your local repository
   (b.) Someone else makes other changes to remote repository
   (c.) git fetch origin   - to get all remote branch updates into yours
@@ -132,20 +177,38 @@ git fetch <remote name>  -- To pull in the latest from the GitHub repository, bu
   
 Local and Remote do NOT automatically synch. Need to push/pull always.
 
-Fork:  If you want to work on someone's existing repository on GitHub and make a copy into your repository (so as to not affect their repository in anyway), you can use the Fork option right from GitHub. It essentially creates a clone of it into your GitHub repository and the user gets credit for it (it tracks forks) and it is easily linkable back to the user. After you create the fork, you can use "git clone <url>" to get your copy of the GitHub repository down to your local machine to work on it. When you clone a repository, Git automatically creates the remote linking to the URL for you.
-Steps:  (1.) Go to Repository on GitHub, (2.) Use Fork button, (3.) Find the URL for your new repository on GitHub (the one under your name), (4.) git clone <url to your repository> on your local machine. Now anything you do will not affect the original repository that your forked from. If you plan on working on the project in a collaborative way, then you should locally create your own branch, so you can easily keep your master branch in synch with the project's master and not affect your own branch.
+Fork:  If you want to work on someone's existing repository on GitHub and make a copy 
+into your repository (so as to not affect their repository in anyway), you can use the 
+Fork option right from GitHub. It essentially creates a clone of it into your GitHub 
+repository and the user gets credit for it (it tracks forks) and it is easily linkable 
+back to the user. After you create the fork, you can use "git clone <url>" to get your 
+copy of the GitHub repository down to your local machine to work on it. When you clone a 
+repository, Git automatically creates the remote linking to the URL for you.
+Steps:  (1.) Go to Repository on GitHub, (2.) Use Fork button, (3.) Find the URL for your 
+new repository on GitHub (the one under your name), (4.) git clone <url to your repository
+> on your local machine. Now anything you do will not affect the original repository that 
+your forked from. If you plan on working on the project in a collaborative way, then you 
+should locally create your own branch, so you can easily keep your master branch in synch 
+with the project's master and not affect your own branch.
 
-If you want to get updated versions of the original Forked repositories master, you can add a new remote for yourself call "upstream" that will allow you to work with the latest version of the original repository that you forked from. You can then merge what you are working on with the latest changes in that repository. Essentially:
+If you want to get updated versions of the original Forked repositories master, you can 
+add a new remote for yourself call "upstream" that will allow you to work with the latest 
+version of the original repository that you forked from. You can then merge what you are 
+working on with the latest changes in that repository. Essentially:
+
 (1.) git remote add upstream <original url>
 (2.) git pull upstream master    --pulling upstream into your master
 (3.) git merge master <your branch>
 (4.) git push upstream master
 (5.) git push origin <your branch>
-(4.) Continue on if you want to make a pull request (from your GitHub, you'd do a pull request and request that it merge into the original repository)
+(6.) Continue on if you want to make a pull request (from your GitHub, you'd do a pull 
+request and request that it merge into the original repository)
 
-Collaborators:  If someone should be able to edit your repository on GitHub, go to Settings > Collaborators.
+Collaborators:  If someone should be able to edit your repository on GitHub, go to 
+Settings > Collaborators.
 
-Fast-Forward Merge:  If the branch you're merging into is an ancestor of the branch you're merging from.
+Fast-Forward Merge:  If the branch you're merging into is an ancestor of the branch 
+you're merging from.
   0->a->b  
      git merge a b  - moves the label forward, but no change to path
   
@@ -155,7 +218,8 @@ Fast-Forward Merge:  If the branch you're merging into is an ancestor of the bra
       1->2->3
      git merge 3 c   - NOT a fast-forward merge    
 
-Workflow for PUSHING a change you want a COLLABORATOR to checkout without affecting MASTER branch:
+Workflow for PUSHING a change you want a COLLABORATOR to checkout without affecting 
+MASTER branch:
   (1.) git checkout <new branch, we'll call it experimental>
   (2.) Update files
   (3.) git add <file(s) that changed>
@@ -163,11 +227,24 @@ Workflow for PUSHING a change you want a COLLABORATOR to checkout without affect
   (5.) git push origin experimental
   (6.) GitHub now has a new branch called experimental
   (7.) On GitHub, go to your experimental branch and use the "Pull Request" option
-  (8.) Make sure to edit it so that the pull request is going to your Master branch (or wherever you want it to go to)
+  (8.) Make sure to edit it so that the pull request is going to your Master branch (or 
+  wherever you want it to go to)
   (9.) Collaborators (and you) can see a list of pull requests on the GitHub menu
-  (10.) Collaborators can comment on your changes (inline cmnts for specific lines, or general comments for commit).
-  (11.) If they are ready, can click Merge Pull Request button to make the merge occur. The button only appears if there are no conflicts and merge is okay to go through.
-  (12.) Alternatively, collaborator can make other changes and initiate their own pull request
-  (13.) You could merge pull their request from GitHub and work with that. Once you do that, you can safely delete their branch from their request (it was only created for the purpose of making a pull request)
-  (14.) If you want to merge your branch with the newly updated master (from GitHub), then you'd need to pull it down to your local computer using either a git pull or git fetch (if you want to review first, then merge). If you are in a true collaboration environment, you would update your local experimental branch (merge it with what you pulled from GH), then push that up to GH, not the master. You should only change the master with PULL REQUESTS on GH when collaborating.
-The reason it is called a PULL REQUEST is because you are basically requesting that someone review and PULL (or MERGE) your experimental branch into the MASTER branch (or whatever branches you're working on that apply).
+  (10.) Collaborators can comment on your changes (inline cmnts for specific lines, or 
+  general comments for commit).
+  (11.) If they are ready, can click Merge Pull Request button to make the merge occur. 
+  The button only appears if there are no conflicts and merge is okay to go through.
+  (12.) Alternatively, collaborator can make other changes and initiate their own pull 
+  request
+  (13.) You could merge pull their request from GitHub and work with that. Once you do 
+  that, you can safely delete their branch from their request (it was only created for 
+  the purpose of making a pull request)
+  (14.) If you want to merge your branch with the newly updated master (from GitHub), 
+  then you'd need to pull it down to your local computer using either a git pull or git 
+  fetch (if you want to review first, then merge). If you are in a true collaboration 
+  environment, you would update your local experimental branch (merge it with what you 
+  pulled from GH), then push that up to GH, not the master. You should only change the 
+  master with PULL REQUESTS on GH when collaborating.
+The reason it is called a PULL REQUEST is because you are basically requesting that 
+someone review and PULL (or MERGE) your experimental branch into the MASTER branch (or 
+whatever branches you're working on that apply).
